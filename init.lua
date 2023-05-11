@@ -4,4 +4,5 @@ require "keymaps"
 require "plugins"
 
 -- Configure plugins
-require "configs.colorscheme"
+require "config.colorscheme"
+require "config.cmp"
