@@ -6,3 +6,4 @@ require "plugins"
 -- Configure plugins
 require "config.colorscheme"
 require "config.cmp"
+require "config.lsp"
