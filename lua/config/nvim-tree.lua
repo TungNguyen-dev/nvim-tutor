@@ -151,5 +151,8 @@ nvim_tree.setup {
     width = 30,
     side = "left",
   },
+  git = {
+    enable = false,
+  },
   on_attach = on_attach,
 }
