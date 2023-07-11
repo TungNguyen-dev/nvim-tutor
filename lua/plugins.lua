@@ -40,52 +40,83 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
-  -- My plugins here
-  use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim"    -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim"  -- Useful lua functions used ny lots of plugins
-  use "numToStr/Comment.nvim"  -- Easily comment stuff
-  use 'kyazdani42/nvim-tree.lua'
-  use 'kyazdani42/nvim-web-devicons'
+  -- My plugins here.
+  -- Have packer manage itself.
+  use "wbthomason/packer.nvim"
 
-  -- Colorschemes
+  -- Colorschemes --
   use "lunarvim/darkplus.nvim"
 
-  -- Completions
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-
-  -- Snippets
-  use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-
-  -- LSP
-  use 'neovim/nvim-lspconfig'
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
-
-  -- Telescope
-  use "nvim-telescope/telescope.nvim"
-  use 'nvim-telescope/telescope-media-files.nvim'
-
-  -- Treesitter
+  -- Completion --
   use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
+    "hrsh7th/nvim-cmp",
+    requires = {
+      { "hrsh7th/cmp-buffer" },
+      { "hrsh7th/cmp-path" },
+      { "hrsh7th/cmp-cmdline" },
+    },
   }
-  use "p00f/nvim-ts-rainbow"
-  use "nvim-treesitter/playground"
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
 
-  -- Autopairs
-  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+  -- Snippets --
+  use {
+    "L3MON4D3/LuaSnip", -- Snippets engine.
+    requires = {
+      { "rafamadriz/friendly-snippets" }, -- Snippets collection.
+      { "saadparwaiz1/cmp_luasnip" },     -- Bridge cmp and snippets.
+    },
+  }
 
-  -- Git
-  use "lewis6991/gitsigns.nvim"
+  -- LSP --
+  use {
+    "neovim/nvim-lspconfig", -- Enable LSP.
+    requires = {
+      { "williamboman/mason.nvim" },           -- LSP Servers Manager.
+      { "williamboman/mason-lspconfig.nvim" }, -- Bridge manson and lsp.
+      { "hrsh7th/cmp-nvim-lsp" },              -- Bridge cmp and lsp.
+    }
+  }
+
+  -- Treesitter --
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    requires = {
+      {'jose-elias-alvarez/null-ls.nvim'} -- Formatter and linter.
+    }
+  }
+
+  -- Telescope --
+  use {
+    "nvim-telescope/telescope.nvim", tag = '0.1.x',
+    requires = {
+      'nvim-lua/plenary.nvim',
+    }
+  }
+
+  -- Nvim tree --
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+    }
+  }
+
+  -- Git --
+  use {
+    'lewis6991/gitsigns.nvim'
+  }
+
+  -- Ulities.
+  use {
+    {
+      'numToStr/Comment.nvim',   -- Comment.
+      requires = {
+        'JoosepAlviste/nvim-ts-context-commentstring' -- Config specific for programming language.
+      },
+    },
+    {"windwp/nvim-autopairs"},   -- Autopairs.
+    {'akinsho/bufferline.nvim'}, -- Buffer line.
+    {'akinsho/toggleterm.nvim'}  -- Toggle terminal.
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

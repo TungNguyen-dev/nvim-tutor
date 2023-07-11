@@ -1,5 +1,7 @@
 local servers = {
   "lua_ls",
+  "html",
+  "cssls",
 	"jsonls",
   "intelephense",
 }
@@ -31,14 +33,17 @@ end
 local opts = {}
 
 for _, server in pairs(servers) do
-	opts = {
-		on_attach = require("config.lsp.handlers").on_attach,
-		capabilities = require("config.lsp.handlers").capabilities,
-	}
+  local handlers_status_ok, handlers = pcall(require, "plugin-config.lsp.handlers")
+  if handlers_status_ok then
+    opts = {
+      on_attach = handlers.on_attach,
+      capabilities = handlers.capabilities,
+    }
+  end
 
 	server = vim.split(server, "@")[1]
 
-	local require_ok, conf_opts = pcall(require, "config.lsp.settings." .. server)
+	local require_ok, conf_opts = pcall(require, "plugin-config.lsp.settings." .. server)
 	if require_ok then
 		opts = vim.tbl_deep_extend("force", conf_opts, opts)
 	end
