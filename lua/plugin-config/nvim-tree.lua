@@ -153,12 +153,11 @@ nvim_tree.setup({
     },
   },
   filters = {
-    git_ignored = true,
     dotfiles = false,
     git_clean = false,
     no_buffer = false,
-    custom = {'.git', '.idea'},
-    exclude = {'.gitignore'},
+    custom = { '.git', '.idea', '.DS_Store' },
+    exclude = { '.gitignore' },
   },
   filesystem_watchers = {
     enable = true,
