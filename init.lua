@@ -16,3 +16,4 @@ require "plugin-config.gitsigns"      -- Git tracking.
 require "plugin-config.bufferline"    -- A snazzy buffer line.
 require "plugin-config.null-ls"       -- Formatter and linter.
 require "plugin-config.toggleterm"    -- Toggle terminal.
+require "plugin-config.lualine"       -- Status line.

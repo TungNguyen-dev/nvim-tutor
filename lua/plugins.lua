@@ -113,9 +113,10 @@ return packer.startup(function(use)
         'JoosepAlviste/nvim-ts-context-commentstring' -- Config specific for programming language.
       },
     },
-    {"windwp/nvim-autopairs"},   -- Autopairs.
-    {'akinsho/bufferline.nvim'}, -- Buffer line.
-    {'akinsho/toggleterm.nvim'}  -- Toggle terminal.
+    {"windwp/nvim-autopairs"},     -- Autopairs.
+    {'akinsho/bufferline.nvim'},   -- Buffer line.
+    {'akinsho/toggleterm.nvim'},   -- Toggle terminal.
+    {'nvim-lualine/lualine.nvim'}, -- Status line.
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
