@@ -17,8 +17,11 @@ telescope.setup {
       '--line-number',
       '--column',
       '--smart-case',
-      '-u',
     },
+    file_ignore_patterns = {
+      '.git',
+      '.idea',
+    }
   },
   pickers = {
     find_files = {
