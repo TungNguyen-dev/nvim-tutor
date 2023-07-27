@@ -59,7 +59,13 @@ nvim_tree.setup({
     },
   },
   filters = {
-    custom = { '.git', '.idea', '.DS_Store' },
+    custom = { 
+      '.git',
+      '.idea',
+      '.vscode',
+      '.DS_Store',
+      '.devcontainer',
+    },
     exclude = { '.gitignore' },
   },
   git = {
