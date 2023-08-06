@@ -80,7 +80,7 @@ return packer.startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     requires = {
-      { 'jose-elias-alvarez/null-ls.nvim' } -- Formatter and linter.
+      -- { 'jose-elias-alvarez/null-ls.nvim' } -- Formatter and linter.
     }
   }
 
