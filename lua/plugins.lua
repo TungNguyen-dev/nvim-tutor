@@ -102,17 +102,18 @@ return packer.startup(function(use)
 
   -- Utilities --
   use {
-    { 'lewis6991/gitsigns.nvim' },    -- Git-signs.
+    { 'lewis6991/gitsigns.nvim' },                    -- Git-signs.
     {
       'numToStr/Comment.nvim',                        -- Comment.
       requires = {
         'JoosepAlviste/nvim-ts-context-commentstring' -- Config specific for programming language.
       },
     },
-    { "windwp/nvim-autopairs" },     -- Autopairs.
-    { 'akinsho/bufferline.nvim' },   -- Buffer line.
-    { 'akinsho/toggleterm.nvim' },   -- Toggle terminal.
-    { 'nvim-lualine/lualine.nvim' }, -- Status line.
+    { "windwp/nvim-autopairs" },                -- Autopairs.
+    { 'akinsho/bufferline.nvim' },              -- Buffer line.
+    { 'akinsho/toggleterm.nvim' },              -- Toggle terminal.
+    { 'nvim-lualine/lualine.nvim' },            -- Status line.
+    { "lukas-reineke/indent-blankline.nvim" },  -- Indent blankline.
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
