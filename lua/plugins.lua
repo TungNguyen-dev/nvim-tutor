@@ -47,6 +47,23 @@ return packer.startup(function(use)
   -- Colorschemes --
   use "lunarvim/darkplus.nvim"
 
+  -- LSP --
+  use {
+    "neovim/nvim-lspconfig",
+    requires = {
+      { "williamboman/mason.nvim" },           -- LSP Servers Manager.
+      { "williamboman/mason-lspconfig.nvim" }, -- Bridge manson and lsp.
+    }
+  }
+
+  -- Snippets --
+  use {
+    "L3MON4D3/LuaSnip",
+    requires = {
+      { "rafamadriz/friendly-snippets" }, -- Snippets collection.
+    },
+  }
+
   -- Completion --
   use {
     "hrsh7th/nvim-cmp",
@@ -54,37 +71,17 @@ return packer.startup(function(use)
       { "hrsh7th/cmp-buffer" },
       { "hrsh7th/cmp-path" },
       { "hrsh7th/cmp-cmdline" },
+      { "hrsh7th/cmp-nvim-lsp" },     -- Bridge cmp and lsp.
+      { "saadparwaiz1/cmp_luasnip" }, -- Bridge cmp and snippets.
     },
   }
 
-  -- Snippets --
-  use {
-    "L3MON4D3/LuaSnip",                   -- Snippets engine.
-    requires = {
-      { "rafamadriz/friendly-snippets" }, -- Snippets collection.
-      { "saadparwaiz1/cmp_luasnip" },     -- Bridge cmp and snippets.
-    },
-  }
-
-  -- LSP --
-  use {
-    "neovim/nvim-lspconfig",                   -- Enable LSP.
-    requires = {
-      { "williamboman/mason.nvim" },           -- LSP Servers Manager.
-      { "williamboman/mason-lspconfig.nvim" }, -- Bridge manson and lsp.
-      { "hrsh7th/cmp-nvim-lsp" },              -- Bridge cmp and lsp.
-    }
-  }
-
-  -- Treesitter --
+  -- Syntax --
   use {
     'nvim-treesitter/nvim-treesitter',
-    requires = {
-      -- { 'jose-elias-alvarez/null-ls.nvim' } -- Formatter and linter.
-    }
   }
 
-  -- Telescope --
+  -- Fuzzy Finder --
   use {
     "nvim-telescope/telescope.nvim", tag = '0.1.x',
     requires = {
@@ -92,7 +89,7 @@ return packer.startup(function(use)
     }
   }
 
-  -- Nvim tree --
+  -- File Explorer --
   use {
     'nvim-tree/nvim-tree.lua',
     requires = {
@@ -100,20 +97,37 @@ return packer.startup(function(use)
     }
   }
 
-  -- Utilities --
+  -- Bars and Lines --
   use {
-    { 'lewis6991/gitsigns.nvim' },                    -- Git-signs.
+    { 'nvim-lualine/lualine.nvim' }, -- Status line.
+    { 'akinsho/bufferline.nvim' },   -- Buffer line.
+  }
+
+  -- Terminal Intergration --
+  use { 'akinsho/toggleterm.nvim' } -- Toggle terminal.
+
+  -- Git --
+  use {
+    'lewis6991/gitsigns.nvim',
+  }
+
+  -- Editing Support --
+  use {
+    { "windwp/nvim-autopairs" }, -- Autopairs.
     {
-      'numToStr/Comment.nvim',                        -- Comment.
+      -- Comment.
+      "numToStr/Comment.nvim",
       requires = {
-        'JoosepAlviste/nvim-ts-context-commentstring' -- Config specific for programming language.
+        -- Config specific for programming language.
+        "JoosepAlviste/nvim-ts-context-commentstring",
       },
-    },
-    { "windwp/nvim-autopairs" },                -- Autopairs.
-    { 'akinsho/bufferline.nvim' },              -- Buffer line.
-    { 'akinsho/toggleterm.nvim' },              -- Toggle terminal.
-    { 'nvim-lualine/lualine.nvim' },            -- Status line.
-    { "lukas-reineke/indent-blankline.nvim" },  -- Indent blankline.
+    }
+  }
+
+  -- Formatting --
+  use {
+    -- Indent blankline.
+    "lukas-reineke/indent-blankline.nvim",
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
