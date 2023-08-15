@@ -45,7 +45,7 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim"
 
   -- Colorschemes --
-  use "lunarvim/darkplus.nvim"
+  use "folke/tokyonight.nvim"
 
   -- LSP --
   use {
