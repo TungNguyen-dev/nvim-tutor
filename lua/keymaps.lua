@@ -51,6 +51,9 @@ if status_ok then
   vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, {})
 end
 
+-- Buffer Windows.
+keymap("n", "<leader>bd", ":%bd|e#|bd#<CR>", opts)
+
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
