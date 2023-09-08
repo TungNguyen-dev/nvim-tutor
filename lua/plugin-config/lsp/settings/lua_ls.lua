@@ -1,8 +1,4 @@
 return {
-  cmd = { "lua-language-server" },
-  filetypes = { "lua" },
-  log_level = 2,
-  root_dir = nvim.lsp.util.root_pattern(".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml", "stylua.toml", "selene.toml", "selene.yml", ".git"),
   settings = {
     Lua = {
       runtime = {
@@ -11,7 +7,7 @@ return {
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = {'vim', 'nvim'},
+        globals = { 'vim', 'nvim' },
       },
       workspace = {
         -- Make the server aware of Neovim runtime files
@@ -23,5 +19,4 @@ return {
       },
     },
   },
-  single_file_support = true,
 }
