@@ -79,6 +79,9 @@ return packer.startup(function(use)
   -- Syntax --
   use {
     'nvim-treesitter/nvim-treesitter',
+    requires = {
+      'nvim-treesitter/playground',
+    }
   }
 
   -- Fuzzy Finder --
