@@ -52,7 +52,8 @@ if status_ok then
 end
 
 -- Buffer Windows.
-keymap("n", "<leader>bd", ":%bd|e#|bd#<CR>", opts)
+keymap("n", "<leader>x", ":bw!<CR>", opts)
+keymap("n", "<leader>bd", ":%bw!<CR>", opts)
 
 -- Insert --
 -- Press jk fast to enter
