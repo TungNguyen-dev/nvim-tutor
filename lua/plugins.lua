@@ -81,6 +81,8 @@ return packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     requires = {
       'nvim-treesitter/playground',
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      'RRethy/nvim-treesitter-textsubjects',
     }
   }
 

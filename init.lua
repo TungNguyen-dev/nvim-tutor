@@ -18,3 +18,4 @@ require "plugin-config.null-ls"          -- Formatter and linter.
 require "plugin-config.toggleterm"       -- Toggle terminal.
 require "plugin-config.lualine"          -- Status line.
 require "plugin-config.indent-blankline" -- Indent blankline.
+require "plugin-config.textobjects"      -- Syntax aware text-objects, select, move, swap, and peek support.
