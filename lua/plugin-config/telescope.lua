@@ -21,6 +21,11 @@ telescope.setup {
     file_ignore_patterns = {
       '.git',
       '.idea',
+    },
+    sorting_strategy = 'ascending',
+    layout_config = {
+      prompt_position = 'top',
+      preview_width = 0.5,
     }
   },
   pickers = {
