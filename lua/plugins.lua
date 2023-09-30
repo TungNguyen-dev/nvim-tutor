@@ -46,6 +46,13 @@ return packer.startup(function(use)
 
   -- Colorschemes --
   use "folke/tokyonight.nvim"
+  use {
+    'goolord/alpha-nvim',
+    requires = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require 'alpha'.setup(require 'alpha.themes.startify'.config)
+    end
+  }
 
   -- LSP --
   use {
@@ -132,7 +139,7 @@ return packer.startup(function(use)
   -- Formatting --
   use {
     -- Indent blankline.
-    "lukas-reineke/indent-blankline.nvim",
+    "lukas-reineke/indent-blankline.nvim", tag = 'v2.20.8',
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
