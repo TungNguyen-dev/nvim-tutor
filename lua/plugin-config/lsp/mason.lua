@@ -4,6 +4,7 @@ local servers = {
   "cssls",
 	"jsonls",
   "intelephense",
+  "jdtls",
 }
 
 local settings = {
