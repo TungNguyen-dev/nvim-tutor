@@ -141,6 +141,7 @@ return packer.startup(function(use)
     -- Indent blankline.
     "lukas-reineke/indent-blankline.nvim", tag = 'v2.20.8',
   }
+  use "lukas-reineke/virt-column.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

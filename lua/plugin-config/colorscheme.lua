@@ -8,18 +8,17 @@ end
 colorscheme.setup {
   style = "night",
   on_colors = function(colors)
-    colors.bg = '#2B2B2B'
-    colors.fg = '#F8F8F2'
+    colors.bg = '#141414'
+    colors.fg = '#AAAFD2'
     colors.orange = '#FFB86C'
-    colors.yellow = '#FFFFA5'
-    colors.gray = '#4D4D4D'
+    colors.yellow = '#F0FA46'
+    colors.gray = '#B4B4B4'
+    colors.green = '#59A571'
+    colors.green1 = '#71D090'
   end,
   on_highlights = function(highlights, colors)
-    highlights.ColorColumn = {
-      bg = colors.gray
-    }
     highlights.LineNr = {
-      fg = '#585B5D'
+      fg = colors.blue,
     }
     highlights.Delimiter = {
       fg = colors.white
@@ -55,7 +54,7 @@ colorscheme.setup {
       fg = colors.yellow
     }
     highlights.phpMethodsVar = {
-      fg = colors.yellow
+      fg = colors.orange
     }
     highlights.phpMemberSelector = {
       fg = colors.white
