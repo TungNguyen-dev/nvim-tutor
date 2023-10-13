@@ -55,6 +55,10 @@ end
 keymap("n", "<leader>x", ":bw!<CR>", opts)
 keymap("n", "<leader>bd", ":%bw!<CR>", opts)
 
+-- Wrap line.
+keymap("n", "<leader>wr", ":set wrap<CR>", opts)
+keymap("n", "<leader>nwr", ":set nowrap<CR>", opts)
+
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
