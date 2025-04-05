@@ -50,6 +50,13 @@ return packer.startup(function(use)
     tag = 'v4.11.0',
   }
 
+  -- Treesitter
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    tag = 'v0.9.3',
+    run = ':TSUpdate',
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
