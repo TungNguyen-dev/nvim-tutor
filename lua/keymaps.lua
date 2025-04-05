@@ -47,3 +47,6 @@ keymap("v", ">", ">gv", opts)
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+
+-- Terminal
+keymap('t', '<C-t>', [[<C-\><C-n>]], opts)
