@@ -6,3 +6,4 @@ require "plugins"
 -- Configuration for additional plugins --
 require "configs.colorscheme"
 require "configs.treesitter"
+require "configs.lsp"
