@@ -89,6 +89,14 @@ return packer.startup(function(use)
     "nvim-tree/nvim-web-devicons",
   }
 
+  -- Comment
+  use {
+    'numToStr/Comment.nvim',   -- Comment.
+    requires = {
+      'JoosepAlviste/nvim-ts-context-commentstring' -- Config specific for programming language.
+    },
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
