@@ -44,31 +44,44 @@ return packer.startup(function(use)
   -- Have packer manage itself.
   use "wbthomason/packer.nvim"
 
-  -- Colorschemes --
+  -- Basic --
   use {
-    'folke/tokyonight.nvim',
-    tag = 'v4.11.0',
+    'folke/tokyonight.nvim', tag = 'v4.11.0',
+    'nvim-tree/nvim-tree.lua', tag = 'v1.11.0', 
+    'nvim-telescope/telescope.nvim', tag = '0.1.8',
+    "nvim-tree/nvim-web-devicons",
   }
 
+  -- Terminal Integration --
+  use {
+    'akinsho/toggleterm.nvim', tag = 'v2.13.1'
+  }
+
+  -- Git Integration --
+  use {
+    'lewis6991/gitsigns.nvim',
+    "NeogitOrg/neogit",
+    "nvim-lua/plenary.nvim",
+    "sindrets/diffview.nvim",
+  }
+
+  -- Language programming support -- 
   -- Treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
     tag = 'v0.9.3',
     run = ':TSUpdate',
   }
-
   -- LSP Server Manager
   use {
     "williamboman/mason.nvim", tag = 'v1.11.0',
     "williamboman/mason-lspconfig.nvim", tag = 'v1.32.0',
   }
-
   -- LSP
   use {
     'neovim/nvim-lspconfig',
     tag = 'v1.7.0'
   }
-
   -- Completion
   use {
     'hrsh7th/cmp-nvim-lsp',
@@ -79,16 +92,6 @@ return packer.startup(function(use)
     'hrsh7th/cmp-vsnip',
     'hrsh7th/vim-vsnip',
   }
-
-  -- Git
-  use {
-    'lewis6991/gitsigns.nvim',
-    "NeogitOrg/neogit",
-    "nvim-lua/plenary.nvim",
-    "sindrets/diffview.nvim",
-    "nvim-tree/nvim-web-devicons",
-  }
-
   -- Comment
   use {
     'numToStr/Comment.nvim',   -- Comment.
@@ -97,13 +100,7 @@ return packer.startup(function(use)
     },
   }
 
-  -- Terminal Integration
-  use {
-    'akinsho/toggleterm.nvim',
-    tag = 'v2.13.1'
-  }
-
-  -- Decorate workspace
+  -- Decorate workspace --
   use {
     'nvim-lualine/lualine.nvim', -- Statusline
     'akinsho/bufferline.nvim',   -- Tabline

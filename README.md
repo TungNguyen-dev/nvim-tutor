@@ -1,1 +1,1 @@
-# nvim configuration for personal IDE
+# My personal neovim IDE

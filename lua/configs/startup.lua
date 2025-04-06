@@ -1,14 +1,9 @@
-require('lualine').setup({
-  options = {
-    theme = 'dracula'
-  }
-})
+local status_ok, alpha = pcall(require, "alpha")
+if not status_ok then
+  return
+end
 
-require('bufferline').setup()
-
-require('illuminate').configure()
-
-local dashboard = require('alpha.themes.dashboard')
+local dashboard = require("alpha.themes.dashboard")
 -- Set header
 dashboard.section.header.val = {
   [[···············································]],
@@ -24,4 +19,4 @@ dashboard.section.header.val = {
   [[:                                             :]],
   [[···············································]],
 }
-require('alpha').setup(dashboard.opts)
+alpha.setup(dashboard.opts)
