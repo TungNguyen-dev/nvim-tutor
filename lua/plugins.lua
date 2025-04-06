@@ -57,9 +57,16 @@ return packer.startup(function(use)
     run = ':TSUpdate',
   }
 
+  -- LSP
   use {
     'neovim/nvim-lspconfig',
     tag = 'v1.7.0'
+  }
+
+  -- LSP Server Manager
+  use {
+    "williamboman/mason.nvim", tag = 'v1.11.0',
+    "williamboman/mason-lspconfig.nvim", tag = 'v1.32.0',
   }
 
   -- Automatically set up your configuration after cloning packer.nvim
