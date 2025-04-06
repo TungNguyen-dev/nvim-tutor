@@ -103,6 +103,14 @@ return packer.startup(function(use)
     tag = 'v2.13.1'
   }
 
+  -- Decorate workspace
+  use {
+    'nvim-lualine/lualine.nvim', -- Statusline
+    'akinsho/bufferline.nvim',   -- Tabline
+    'RRethy/vim-illuminate',     -- Cursorline
+    'goolord/alpha-nvim',        -- Startup
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
