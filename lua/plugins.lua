@@ -80,6 +80,15 @@ return packer.startup(function(use)
     'hrsh7th/vim-vsnip',
   }
 
+  -- Git
+  use {
+    'lewis6991/gitsigns.nvim',
+    "NeogitOrg/neogit",
+    "nvim-lua/plenary.nvim",
+    "sindrets/diffview.nvim",
+    "nvim-tree/nvim-web-devicons",
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
