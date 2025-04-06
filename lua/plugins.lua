@@ -97,6 +97,12 @@ return packer.startup(function(use)
     },
   }
 
+  -- Terminal Integration
+  use {
+    'akinsho/toggleterm.nvim',
+    tag = 'v2.13.1'
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
