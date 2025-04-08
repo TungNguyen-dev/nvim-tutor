@@ -1,3 +1,4 @@
+-- Mason
 local status_ok, mason = pcall(require, "mason")
 if not status_ok then
   return
@@ -13,11 +14,15 @@ mason.setup({
   }
 })
 
+-- Mason-lsp
 local status_ok_mason_lspconfig, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not status_ok_mason_lspconfig then
   return
 end
 
+local handlers = require "configs.lsp.handlers"
+
 mason_lspconfig.setup({
-  ensure_installed = {'jdtls', 'ts_ls'},
+  ensure_installed = handlers.servers,
+  automatic_installation = true,
 })

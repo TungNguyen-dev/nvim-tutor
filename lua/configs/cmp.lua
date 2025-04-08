@@ -1,3 +1,4 @@
+-- cmp
 local status_ok, cmp = pcall(require, "cmp")
 if not status_ok then
   return
@@ -67,12 +68,3 @@ cmp.setup.cmdline(':', {
   }),
   matching = { disallow_symbol_nonprefix_matching = false }
 })
-
--- Set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local servers = { 'jdtls', 'ts_ls' };
-for _, server in pairs(servers) do
-  require('lspconfig')[server].setup {
-    capabilities = capabilities
-  }
-end

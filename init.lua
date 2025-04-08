@@ -9,14 +9,13 @@ require "configs.nvim-tree"
 require "configs.telescope"
 
 -- Terminal integration configuration --
-require "configs.terminal"
+require "configs.toggleterm"
 
 -- Git integration configuration --
 require "configs.git"
 
 -- Programming language configuration --
 require "configs.treesitter"
-require "configs.mason-lsp"
 require "configs.lsp"
 require "configs.cmp"
 require "configs.comment"
