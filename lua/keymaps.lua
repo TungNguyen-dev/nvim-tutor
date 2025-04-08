@@ -49,7 +49,14 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal
+keymap('n', '<leader>g', ':ToggleTerm<CR>', opts)
 keymap('t', '<C-t>', [[<C-\><C-n>]], opts)
+keymap('t', '<esc>', [[<C-\><C-n>]], opts)
+keymap('t', 'jk', [[<C-\><C-n>]], opts)
+keymap('t', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
+keymap('t', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
+keymap('t', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
+keymap('t', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
 
 -- Nvim-tree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
