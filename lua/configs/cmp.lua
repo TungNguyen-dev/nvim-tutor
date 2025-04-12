@@ -23,8 +23,8 @@ cmp.setup({
         else
           fallback()
         end
-      end, 
-      {"i", "s"}
+      end,
+      { "i", "s" }
     ),
     ["<S-Tab>"] = cmp.mapping(
       function(fallback)
@@ -33,8 +33,8 @@ cmp.setup({
         else
           fallback()
         end
-      end, 
-      {"i", "s"}
+      end,
+      { "i", "s" }
     ),
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),

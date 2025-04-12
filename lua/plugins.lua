@@ -46,10 +46,10 @@ return packer.startup(function(use)
 
   -- Basic --
   use {
-    'folke/tokyonight.nvim', tag = 'v4.11.0',
-    'nvim-tree/nvim-tree.lua', tag = 'v1.11.0', 
-    'nvim-telescope/telescope.nvim', tag = '0.1.8',
-    "nvim-tree/nvim-web-devicons",
+    { 'folke/tokyonight.nvim',         tag = 'v4.11.0' },
+    { 'nvim-tree/nvim-tree.lua',       tag = 'v1.11.0' },
+    { 'nvim-telescope/telescope.nvim', tag = '0.1.8' },
+    { "nvim-tree/nvim-web-devicons",   tag = 'v0.100' },
   }
 
   -- Terminal Integration --
@@ -65,7 +65,7 @@ return packer.startup(function(use)
     "sindrets/diffview.nvim",
   }
 
-  -- Language programming support -- 
+  -- Language programming support --
   -- Treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -74,14 +74,15 @@ return packer.startup(function(use)
   }
   -- LSP Server Manager
   use {
-    "williamboman/mason.nvim", tag = 'v1.11.0',
-    "williamboman/mason-lspconfig.nvim", tag = 'v1.32.0',
+    { "williamboman/mason.nvim",           tag = 'v1.11.0' },
+    { "williamboman/mason-lspconfig.nvim", tag = 'v1.32.0' },
   }
   -- LSP
   use {
     'neovim/nvim-lspconfig',
     tag = 'v1.7.0'
   }
+
   -- Completion
   use {
     'hrsh7th/cmp-nvim-lsp',
@@ -94,7 +95,7 @@ return packer.startup(function(use)
   }
   -- Comment
   use {
-    'numToStr/Comment.nvim',   -- Comment.
+    'numToStr/Comment.nvim',                        -- Comment.
     requires = {
       'JoosepAlviste/nvim-ts-context-commentstring' -- Config specific for programming language.
     },
