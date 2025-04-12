@@ -82,7 +82,6 @@ return packer.startup(function(use)
     'neovim/nvim-lspconfig',
     tag = 'v1.7.0'
   }
-
   -- Completion
   use {
     'hrsh7th/cmp-nvim-lsp',
@@ -93,12 +92,11 @@ return packer.startup(function(use)
     'hrsh7th/cmp-vsnip',
     'hrsh7th/vim-vsnip',
   }
-  -- Comment
+  -- Utilities
   use {
-    'numToStr/Comment.nvim',                        -- Comment.
-    requires = {
-      'JoosepAlviste/nvim-ts-context-commentstring' -- Config specific for programming language.
-    },
+    { 'numToStr/Comment.nvim' },                       -- Comment.
+    { 'JoosepAlviste/nvim-ts-context-commentstring' }, -- Config specific for programming language.
+    { "windwp/nvim-autopairs" }                        -- Autopairs.
   }
 
   -- Decorate workspace --

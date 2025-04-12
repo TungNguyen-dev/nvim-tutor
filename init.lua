@@ -19,6 +19,7 @@ require "configs.treesitter"
 require "configs.lsp"
 require "configs.cmp"
 require "configs.comment"
+require "configs.autopairs"
 
 -- Configuration for workspace decoration --
 require "configs.statusline"
