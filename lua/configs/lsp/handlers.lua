@@ -1,6 +1,14 @@
 local M = {}
 
-M.servers = { "lua_ls", "jdtls", "ts_ls" }
+M.servers = {
+  "bashls",
+  "vimls",
+  "lua_ls",
+  "jdtls",
+  "ts_ls",
+  "jsonls",
+  "marksman",
+}
 
 local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status_cmp_ok then
