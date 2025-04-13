@@ -49,14 +49,14 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal
-keymap('n', '<leader>g', ':ToggleTerm<CR>', opts)
-keymap('t', '<C-t>', [[<C-\><C-n>]], opts)
-keymap('t', '<esc>', [[<C-\><C-n>]], opts)
-keymap('t', 'jk', [[<C-\><C-n>]], opts)
-keymap('t', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
-keymap('t', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
-keymap('t', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
-keymap('t', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
+keymap("n", "<leader>g", ":ToggleTerm<CR>", opts)
+keymap("t", "<C-t>", [[<C-\><C-n>]], opts)
+keymap("t", "<esc>", [[<C-\><C-n>]], opts)
+keymap("t", "jk", [[<C-\><C-n>]], opts)
+keymap("t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
+keymap("t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
+keymap("t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
+keymap("t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
 
 -- Nvim-tree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
@@ -64,8 +64,14 @@ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 -- Telescope
 local status_ok_telescope, telescope_builtin = pcall(require, "telescope.builtin")
 if status_ok_telescope then
-  vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, {})
-  vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, {})
-  vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
-  vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, {})
+	vim.keymap.set("n", "<leader>ff", telescope_builtin.find_files, {})
+	vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep, {})
+	vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers, {})
+	vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, {})
 end
+
+-- Formatter
+keymap("n", "<leader>f", ":Format<cr>", opts)
+keymap("n", "<leader>F", ":FormatWrite<cr>", opts)
+
+-- Nvim spectre

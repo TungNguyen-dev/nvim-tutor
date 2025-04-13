@@ -1,28 +1,31 @@
 -- Configuration for Nvim --
-require "options"
-require "keymaps"
-require "plugins"
+require("options")
+require("keymaps")
+require("plugins")
 
 -- Basic configuration --
-require "configs.colorscheme"
-require "configs.nvim-tree"
-require "configs.telescope"
+require("configs.colorscheme")
+require("configs.nvim-tree")
+require("configs.telescope")
 
 -- Terminal integration configuration --
-require "configs.toggleterm"
+require("configs.toggleterm")
 
 -- Git integration configuration --
-require "configs.git"
+require("configs.git")
 
 -- Programming language configuration --
-require "configs.treesitter"
-require "configs.lsp"
-require "configs.cmp"
-require "configs.comment"
-require "configs.autopairs"
+require("configs.treesitter")
+require("configs.mason")
+require("configs.lsp")
+require("configs.cmp")
+require("configs.comment")
+require("configs.autopairs")
+require("configs.formatter")
+require("configs.spectre")
 
 -- Configuration for workspace decoration --
-require "configs.statusline"
-require "configs.tabline"
-require "configs.cursorline"
-require "configs.startup"
+require("configs.statusline")
+require("configs.tabline")
+require("configs.cursorline")
+require("configs.startup")
