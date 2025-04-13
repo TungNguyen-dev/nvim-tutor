@@ -4,28 +4,28 @@ require("keymaps")
 require("plugins")
 
 -- Basic configuration --
-require("configs.colorscheme")
-require("configs.nvim-tree")
-require("configs.telescope")
+require("plugins.colorscheme")
+require("plugins.nvim-tree")
+require("plugins.telescope")
 
 -- Terminal integration configuration --
-require("configs.toggleterm")
+require("plugins.toggleterm")
 
 -- Git integration configuration --
-require("configs.git")
+require("plugins.git")
 
 -- Programming language configuration --
-require("configs.treesitter")
-require("configs.mason")
-require("configs.lsp")
-require("configs.cmp")
-require("configs.comment")
-require("configs.autopairs")
-require("configs.formatter")
-require("configs.spectre")
+require("plugins.treesitter")
+require("plugins.mason")
+require("plugins.lsp")
+require("plugins.cmp")
+require("plugins.comment")
+require("plugins.autopairs")
+require("plugins.formatter")
+require("plugins.spectre")
 
 -- Configuration for workspace decoration --
-require("configs.statusline")
-require("configs.tabline")
-require("configs.cursorline")
-require("configs.startup")
+require("plugins.statusline")
+require("plugins.tabline")
+require("plugins.cursorline")
+require("plugins.startup")

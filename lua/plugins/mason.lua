@@ -19,7 +19,7 @@ if not status_ok_mason_tool_installer then
 	return
 end
 
-local handlers = require("configs.lsp.handlers")
+local handlers = require("plugins.lsp.handlers")
 local lsp_servers = handlers.servers
 local formatters = {
 	"stylua",
