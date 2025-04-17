@@ -6,3 +6,5 @@ set -e
 brew install wget
 
 brew install mercurial
+
+brew install fd
