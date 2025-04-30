@@ -14,20 +14,31 @@ mason.setup({
 	},
 })
 
+-- Mason Lsp Config
+local status_ok_mason_lspconfig, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not status_ok_mason_lspconfig then
+	return
+end
+
+local handlers = require("plugins.lsp.handlers")
+mason_lspconfig.setup({
+	ensure_installed = handlers.servers,
+	automatic_installation = true,
+})
+
+-- Mason Tool Installer
 local status_ok_mason_tool_installer, mason_tool_installer = pcall(require, "mason-tool-installer")
 if not status_ok_mason_tool_installer then
 	return
 end
 
-local handlers = require("plugins.lsp.handlers")
-local lsp_servers = handlers.servers
 local formatters = {
 	"stylua",
 	"shfmt",
 	"google-java-format",
 	"prettier",
 }
-
 mason_tool_installer.setup({
-	ensure_installed = vim.tbl_extend("force", lsp_servers, formatters),
+	ensure_installed = formatters,
+	automatic_installation = true,
 })
