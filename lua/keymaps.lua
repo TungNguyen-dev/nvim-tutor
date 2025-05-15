@@ -1,6 +1,5 @@
+-- Key map options
 local opts = { noremap = true, silent = true }
-
-local term_opts = { silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
@@ -53,10 +52,12 @@ keymap("n", "<leader>g", ":ToggleTerm<CR>", opts)
 keymap("t", "<C-t>", [[<C-\><C-n>]], opts)
 keymap("t", "<esc>", [[<C-\><C-n>]], opts)
 keymap("t", "jk", [[<C-\><C-n>]], opts)
-keymap("t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
-keymap("t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
-keymap("t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
-keymap("t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
+
+local term_opts = { silent = true }
+keymap("t", "<C-h>", [[<C-\><C-n><C-W>h]], term_opts)
+keymap("t", "<C-j>", [[<C-\><C-n><C-W>j]], term_opts)
+keymap("t", "<C-k>", [[<C-\><C-n><C-W>k]], term_opts)
+keymap("t", "<C-l>", [[<C-\><C-n><C-W>l]], term_opts)
 
 -- Nvim-tree
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
@@ -75,3 +76,7 @@ keymap("n", "<leader>f", ":Format<cr>", opts)
 keymap("n", "<leader>F", ":FormatWrite<cr>", opts)
 
 -- Nvim spectre
+keymap("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', opts)
+keymap("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', opts)
+keymap("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', opts)
+keymap("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<cr>', opts)
