@@ -1,124 +1,75 @@
-local fn = vim.fn
-
--- Automatically install packer
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system({
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
 		"git",
 		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		lazypath,
 	})
-	print("Installing packer close and reopen Neovim...")
-	vim.cmd([[packadd packer.nvim]])
 end
+vim.opt.rtp:prepend(lazypath)
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
+-- Plugin setup
+require("lazy").setup({
+	-- Lazy itself
+	{ "folke/lazy.nvim", lazy = true },
 
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-	return
-end
+	-- Color Scheme
+	{ "folke/tokyonight.nvim", version = "v4.11.0" },
 
--- Have packer use a popup window
-packer.init({
-	display = {
-		open_fn = function()
-			return require("packer.util").float({ border = "rounded" })
-		end,
+	-- File Explorer
+	{ "nvim-tree/nvim-tree.lua", version = "v1.11.0" },
+	{ "nvim-tree/nvim-web-devicons", version = "v0.100" },
+
+	-- Telescope
+	{ "nvim-telescope/telescope.nvim", version = "0.1.8" },
+
+	-- Terminal Integration
+	{ "akinsho/toggleterm.nvim", version = "v2.13.1" },
+
+	-- Git Integration
+	"lewis6991/gitsigns.nvim",
+	"NeogitOrg/neogit",
+	"nvim-lua/plenary.nvim",
+	"sindrets/diffview.nvim",
+
+	-- Treesitter
+	{ "nvim-treesitter/nvim-treesitter", version = "v0.9.3", build = ":TSUpdate" },
+
+	-- Mason and LSP
+	{ "williamboman/mason.nvim", version = "v1.11.0" },
+	{ "williamboman/mason-lspconfig.nvim", version = "v1.32.0" },
+	"WhoIsSethDaniel/mason-tool-installer.nvim",
+	{ "neovim/nvim-lspconfig", version = "v1.7.0" },
+
+	-- Completion
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-cmdline",
+	"hrsh7th/nvim-cmp",
+	"hrsh7th/cmp-vsnip",
+	"hrsh7th/vim-vsnip",
+
+	-- Formatting
+	"mhartington/formatter.nvim",
+
+	-- Utilities
+	"numToStr/Comment.nvim",
+	"JoosepAlviste/nvim-ts-context-commentstring",
+	"windwp/nvim-autopairs",
+
+	-- UI Enhancements
+	"nvim-lualine/lualine.nvim",
+	"akinsho/bufferline.nvim",
+	"RRethy/vim-illuminate",
+	"goolord/alpha-nvim",
+
+	-- Search and Replace
+	{
+		"nvim-pack/nvim-spectre",
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 })
-
--- Install your plugins here
-return packer.startup(function(use)
-	-- My plugins here.
-	-- Have packer manage itself.
-	use("wbthomason/packer.nvim")
-
-	-- Basic --
-	use({
-		{ "folke/tokyonight.nvim", tag = "v4.11.0" },
-		{ "nvim-tree/nvim-tree.lua", tag = "v1.11.0" },
-		{ "nvim-telescope/telescope.nvim", tag = "0.1.8" },
-		{ "nvim-tree/nvim-web-devicons", tag = "v0.100" },
-	})
-
-	-- Terminal Integration --
-	use({
-		"akinsho/toggleterm.nvim",
-		tag = "v2.13.1",
-	})
-
-	-- Git Integration --
-	use({
-		"lewis6991/gitsigns.nvim",
-		"NeogitOrg/neogit",
-		"nvim-lua/plenary.nvim",
-		"sindrets/diffview.nvim",
-	})
-
-	-- Language programming support --
-	-- Treesitter
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		tag = "v0.9.3",
-		run = ":TSUpdate",
-	})
-	-- LSP Server Manager
-	use({
-		{ "williamboman/mason.nvim", tag = "v1.11.0" },
-		{ "williamboman/mason-lspconfig.nvim", tag = "v1.32.0" },
-		{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
-	})
-	-- LSP
-	use({
-		"neovim/nvim-lspconfig",
-		tag = "v1.7.0",
-	})
-	-- Completion
-	use({
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-cmdline",
-		"hrsh7th/nvim-cmp",
-		"hrsh7th/cmp-vsnip",
-		"hrsh7th/vim-vsnip",
-	})
-	-- Formatter & Manager
-	use({ "mhartington/formatter.nvim" })
-	-- Utilities
-	use({
-		{ "numToStr/Comment.nvim" }, -- Comment.
-		{ "JoosepAlviste/nvim-ts-context-commentstring" }, -- Config specific for programming language.
-		{ "windwp/nvim-autopairs" }, -- Autopairs.
-	})
-
-	-- Decorate workspace --
-	use({
-		"nvim-lualine/lualine.nvim", -- Statusline
-		"akinsho/bufferline.nvim", -- Tabline
-		"RRethy/vim-illuminate", -- Cursorline
-		"goolord/alpha-nvim", -- Startup
-	})
-
-	-- Search and replace
-	use({
-		"nvim-pack/nvim-spectre",
-		requires = { "nvim-lua/plenary.nvim" },
-	})
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	if PACKER_BOOTSTRAP then
-		require("packer").sync()
-	end
-end)
