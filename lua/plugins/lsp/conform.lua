@@ -36,6 +36,9 @@ return {
       shfmt = {
         prepend_args = { "-i", "2" },
       },
+      ["google-java-format"] = {
+        prepend_args = { "--aosp" }, -- Ensure 4-space indentation
+      },
     },
   },
   init = function()
