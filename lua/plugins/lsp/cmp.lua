@@ -7,8 +7,7 @@ return {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
-    "hrsh7th/cmp-vsnip",
-    "hrsh7th/vim-vsnip",
+    "L3MON4D3/LuaSnip",
   },
   opts = function()
     vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
@@ -56,7 +55,7 @@ return {
         { name = 'nvim_lsp' },
         { name = 'buffer' },
         { name = 'path' },
-        { name = 'vsnip' }, -- For vsnip users.
+        { name = 'luasnip' },
       },
       sorting = defaults.sorting,
     }
