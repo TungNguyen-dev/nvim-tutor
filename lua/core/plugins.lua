@@ -21,8 +21,10 @@ require("lazy").setup({
     -- import your plugins
     { import = "plugins.ui" },
     { import = "plugins.fs" },
-    { import = "plugins.syntax" },
-    { import = "plugins.lsp" },
+    { import = "plugins.coding-support" },
+    { import = "plugins.coding-support.syntax" },
+    { import = "plugins.coding-support.lsp" },
+    { import = "plugins.git" },
     { import = "plugins.util" },
   },
   -- Configure any other settings here. See the documentation for more details.
