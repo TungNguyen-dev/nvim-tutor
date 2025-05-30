@@ -8,6 +8,7 @@
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
   "gitsigns.nvim": { "branch": "main", "commit": "8bdaccdb897945a3c99c1ad8df94db0ddf5c8790" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
+  "lualine.nvim": { "branch": "master", "commit": "0c6cca9f2c63dadeb9225c45bc92bb95a151d4af" },
   "mason.nvim": { "branch": "main", "commit": "fc98833b6da5de5a9c5b1446ac541577059555be" },
   "mini.nvim": { "branch": "main", "commit": "94cae4660a8b2d95dbbd56e1fbc6fcfa2716d152" },
   "neogit": { "branch": "master", "commit": "80cdce8161c6e2ee909d8f7ee6007957abf39811" },
