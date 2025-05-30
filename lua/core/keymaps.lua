@@ -12,6 +12,10 @@ local keymap = vim.api.nvim_set_keymap
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- Common keymap
+keymap("i", "jk", "<ESC>", opts)
+keymap("v", "jk", "<ESC>", opts)
+
 -- Normal --
 -- Simple
 keymap("n", "<leader>w", ":w<CR>", vim.tbl_deep_extend("force", opts, { desc = "Save current buffer." }));
@@ -33,10 +37,6 @@ keymap("n", "<A-Right>", ":vertical resize -2<CR>", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
-
--- Insert --
--- Press jk fast to enter
-keymap("i", "jk", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode

@@ -18,5 +18,10 @@ return {
       end,
       desc = "Buffer Local Keymaps (which-key)",
     },
+    {
+      "<leader>ng",
+      ":Neogit<CR>",
+      desc = "Open Neogit",
+    },
   },
 }
