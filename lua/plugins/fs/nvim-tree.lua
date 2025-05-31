@@ -22,7 +22,14 @@ return {
     end
 
     return {
-      on_attach = my_on_attach
+      on_attach = my_on_attach,
+      view = {
+        width = {
+          -- Solution in: https://github.com/nvim-tree/nvim-tree.lua/discussions/2915
+          -- Keep window fit to the longest file name
+          max = -1,
+        }
+      }
     }
   end
 }
