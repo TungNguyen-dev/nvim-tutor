@@ -23,5 +23,10 @@ return {
       ":Neogit<CR>",
       desc = "Open Neogit",
     },
+    {
+      "<leader>pm",
+      ":Lazy<CR>",
+      desc = "Open plugin-manager",
+    }
   },
 }
