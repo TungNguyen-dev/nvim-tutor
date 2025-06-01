@@ -27,7 +27,7 @@ return {
     -- Those are used to add config to that corresponding server
     -- Names of those are not name of LSP-Server.
     local lsp_servers = {
-      'bashls', 'vimls', 'lua_ls', 'jdtls', 'ts_ls'
+      'bashls', 'vimls', 'lua_ls', 'ts_ls'
     }
 
     local opts = {
