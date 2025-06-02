@@ -9,7 +9,8 @@ local get_config = function()
   local jdtls_path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
   local cmd_launcher_jar = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
   local cmd_configuration = jdtls_path .. "/config_linux" -- Change to config_mac or config_win if needed
-  local cmd_workspace_folder = vim.fn.expand("~/.cache/jdtls/workspace")
+  local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+  local cmd_workspace_folder = vim.fn.expand("~/.cache/jdtls/workspace") .. project_name
 
   -- Java Debug plugin JAR (must be built from java-debug)
   local bundles = {
@@ -24,6 +25,10 @@ local get_config = function()
       "-Declipse.product=org.eclipse.jdt.ls.core.product",
       "-Dlog.protocol=true",
       "-Dlog.level=ALL",
+      "-Xms1g",
+      "--add-modules=ALL-SYSTEM",
+      "--add-opens", "java.base/java.util=ALL-UNNAMED",
+      "--add-opens", "java.base/java.lang=ALL-UNNAMED",
       "-jar", cmd_launcher_jar,
       "-configuration", cmd_configuration,
       "-data", cmd_workspace_folder
@@ -40,3 +45,4 @@ local get_config = function()
   }
 end
 jdtls.start_or_attach(get_config())
+jdtls.setup.add_commands()
