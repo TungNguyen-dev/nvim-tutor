@@ -10,7 +10,7 @@ local get_config = function()
   local cmd_launcher_jar = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
   local cmd_configuration = jdtls_path .. "/config_linux" -- Change to config_mac or config_win if needed
   local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-  local cmd_workspace_folder = vim.fn.expand("~/.cache/jdtls/workspace") .. project_name
+  local cmd_workspace_folder = vim.fn.expand("~/.cache/jdtls/workspace-") .. project_name
 
   -- Java Debug plugin JAR (must be built from java-debug)
   local bundles = {
