@@ -1,15 +1,47 @@
 return {
-  'nvim-telescope/telescope.nvim',
-  branch = '0.1.x',
-  dependencies = { 'nvim-lua/plenary.nvim' },
-  opts = function()
-    local status_ok_telescope, telescope_builtin = pcall(require, "telescope.builtin")
-    if status_ok_telescope then
-      vim.keymap.set("n", "<leader>ff", telescope_builtin.find_files, {})
-      vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep, {})
-      vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers, {})
-      vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, {})
-    end
-    return {}
-  end
+  "nvim-telescope/telescope.nvim",
+  dependencies = {
+    "nvim-lua/plenary.nvim", -- Required Lua plugin
+  },
+  keys = {
+    { "<leader>ff", function() require("telescope.builtin").find_files() end, desc = "Telescope Find Files" },
+    { "<leader>fg", function() require("telescope.builtin").live_grep() end,  desc = "Telescope Live Grep" },
+    { "<leader>fb", function() require("telescope.builtin").buffers() end,    desc = "Telescope Buffers" },
+    { "<leader>fh", function() require("telescope.builtin").help_tags() end,  desc = "Telescope Help Tags" },
+  },
+  opts = {
+    -- Default configuration for telescope goes here:
+    -- config_key = value,
+    defaults = {
+      sorting_strategy = 'ascending',
+      layout_config = {
+        prompt_position = 'top',
+        preview_width = 0.5,
+      },
+      mappings = {
+        i = {
+          -- map actions.which_key to <C-h> (default: <C-/>)
+          -- actions.which_key shows the mappings for your picker,
+          -- e.g. git_{create, delete, ...}_branch for the git_branches picker
+          ["<C-h>"] = "which_key"
+        }
+      },
+      -- External dependencies (install via system package manager):
+      --   ripgrep: https://github.com/BurntSushi/ripgrep
+      --   fd:      https://github.com/sharkdp/fd
+      vimgrep_arguments = {
+        "rg",
+        "--color=never",
+        "--no-heading",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        "--smart-case",
+      },
+      file_ignore_patterns = {
+        '.git',
+        '.idea',
+      },
+    },
+  },
 }
