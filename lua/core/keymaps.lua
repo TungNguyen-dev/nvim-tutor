@@ -1,61 +1,77 @@
--- Key map options
+-- ╭──────────────────────────────────────────────────────────────────────────────╮
+-- │                          Global Keymap Configuration                         │
+-- ╰──────────────────────────────────────────────────────────────────────────────╯
+
+-- Base keymap options
 local opts = { noremap = true, silent = true }
 
--- Shorten function name
-local keymap = vim.api.nvim_set_keymap
+-- Keymap function using modern API (required for 'desc')
+local keymap = vim.keymap.set
 
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
+-- ╭───────────────────────┬──────────────────────────────────────────────────────╮
+-- │ Section: Normal Mode  │                                                      │
+-- ╰───────────────────────┴──────────────────────────────────────────────────────╯
 
--- Common keymap
-keymap("i", "jk", "<ESC>", opts)
-keymap("v", "jk", "<ESC>", opts)
+-- File operations
+keymap("n", "<leader>w", ":w<CR>", vim.tbl_deep_extend("force", opts, { desc = "Save current buffer." }))
+keymap("n", "<leader>q", ":bd<CR>", vim.tbl_deep_extend("force", opts, { desc = "Quit current buffer." }))
+keymap("n", "<leader>Q", ":qa!<CR>", vim.tbl_deep_extend("force", opts, { desc = "Quit app." }))
 
--- Normal --
--- Simple
-keymap("n", "<leader>w", ":w<CR>", vim.tbl_deep_extend("force", opts, { desc = "Save current buffer." }));
-keymap("n", "<leader>q", ":q<CR>", vim.tbl_deep_extend("force", opts, { desc = "Quit current buffer." }));
-keymap("n", "<leader>qq", ":qa!<CR>", vim.tbl_deep_extend("force", opts, { desc = "Quit app." }));
+-- Split window
+keymap("n", "<leader>sh", ":split<CR>", vim.tbl_deep_extend("force", opts, { desc = "Horizontal split" }))
+keymap("n", "<leader>sv", ":vsplit<CR>", vim.tbl_deep_extend("force", opts, { desc = "Vertical split" }))
 
--- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+-- Navigate between windows
+keymap("n", "<C-h>", "<C-w>h", vim.tbl_deep_extend("force", opts, { desc = "Move to left split" }))
+keymap("n", "<C-j>", "<C-w>j", vim.tbl_deep_extend("force", opts, { desc = "Move to below split" }))
+keymap("n", "<C-k>", "<C-w>k", vim.tbl_deep_extend("force", opts, { desc = "Move to above split" }))
+keymap("n", "<C-l>", "<C-w>l", vim.tbl_deep_extend("force", opts, { desc = "Move to right split" }))
 
--- Resize with arrows
-keymap("n", "<A-Up>", ":resize +2<CR>", opts)
-keymap("n", "<A-Down>", ":resize -2<CR>", opts)
-keymap("n", "<A-Right>", ":vertical resize +2<CR>", opts)
-keymap("n", "<A-Left>", ":vertical resize -2<CR>", opts)
+-- Resize windows with arrows
+keymap("n", "<A-Up>", ":resize +2<CR>", vim.tbl_deep_extend("force", opts, { desc = "Increase window height" }))
+keymap("n", "<A-Down>", ":resize -2<CR>", vim.tbl_deep_extend("force", opts, { desc = "Decrease window height" }))
+keymap("n", "<A-Right>", ":vertical resize +2<CR>",
+  vim.tbl_deep_extend("force", opts, { desc = "Increase window width" }))
+keymap("n", "<A-Left>", ":vertical resize -2<CR>", vim.tbl_deep_extend("force", opts, { desc = "Decrease window width" }))
 
--- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+-- Buffer navigation
+keymap("n", "<S-l>", ":bnext<CR>", vim.tbl_deep_extend("force", opts, { desc = "Next buffer" }))
+keymap("n", "<S-h>", ":bprevious<CR>", vim.tbl_deep_extend("force", opts, { desc = "Previous buffer" }))
 
--- Visual --
+-- ╭────────────────────────┬─────────────────────────────────────────────────────╮
+-- │ Section: Insert Mode   │                                                     │
+-- ╰────────────────────────┴─────────────────────────────────────────────────────╯
+
+-- Quick escape
+keymap("i", "jk", "<ESC>", vim.tbl_deep_extend("force", opts, { desc = "Exit insert mode" }))
+
+-- ╭───────────────────────┬──────────────────────────────────────────────────────╮
+-- │ Section: Visual Mode  │                                                      │
+-- ╰───────────────────────┴──────────────────────────────────────────────────────╯
+
 -- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+keymap("v", "<", "<gv", vim.tbl_deep_extend("force", opts, { desc = "Indent left" }))
+keymap("v", ">", ">gv", vim.tbl_deep_extend("force", opts, { desc = "Indent right" }))
 
--- Visual Block --
--- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+-- ╭─────────────────────────────┬───────────────────────────────────────────────╮
+-- │ Section: Visual Block Mode  │                                               │
+-- ╰─────────────────────────────┴───────────────────────────────────────────────╯
 
--- Terminal
--- Exit mode
-keymap("t", "<C-t>", [[<C-\><C-n>]], opts)
-keymap("t", "<esc>", [[<C-\><C-n>]], opts)
-keymap("t", "jk", [[<C-\><C-n>]], opts)
+-- Move selected text
+keymap("x", "J", ":move '>+1<CR>gv-gv", vim.tbl_deep_extend("force", opts, { desc = "Move block down" }))
+keymap("x", "K", ":move '<-2<CR>gv-gv", vim.tbl_deep_extend("force", opts, { desc = "Move block up" }))
 
--- Navigation
-keymap("t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
-keymap("t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
-keymap("t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
-keymap("t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
+-- ╭────────────────────────┬─────────────────────────────────────────────────────╮
+-- │ Section: Terminal Mode │                                                     │
+-- ╰────────────────────────┴─────────────────────────────────────────────────────╯
+
+-- Exit terminal mode
+keymap("t", "<C-t>", [[<C-\><C-n>]], vim.tbl_deep_extend("force", opts, { desc = "Exit terminal mode" }))
+keymap("t", "<esc>", [[<C-\><C-n>]], vim.tbl_deep_extend("force", opts, { desc = "Exit terminal mode" }))
+keymap("t", "jk", [[<C-\><C-n>]], vim.tbl_deep_extend("force", opts, { desc = "Exit terminal mode" }))
+
+-- Terminal window navigation
+keymap("t", "<C-h>", [[<C-\><C-n><C-W>h]], vim.tbl_deep_extend("force", opts, { desc = "Terminal move left" }))
+keymap("t", "<C-j>", [[<C-\><C-n><C-W>j]], vim.tbl_deep_extend("force", opts, { desc = "Terminal move down" }))
+keymap("t", "<C-k>", [[<C-\><C-n><C-W>k]], vim.tbl_deep_extend("force", opts, { desc = "Terminal move up" }))
+keymap("t", "<C-l>", [[<C-\><C-n><C-W>l]], vim.tbl_deep_extend("force", opts, { desc = "Terminal move right" }))
