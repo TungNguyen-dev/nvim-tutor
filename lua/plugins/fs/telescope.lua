@@ -13,10 +13,12 @@ return {
     -- Default configuration for telescope goes here:
     -- config_key = value,
     defaults = {
+      preview = false,
       sorting_strategy = 'ascending',
+      layout_strategy = "center",
       layout_config = {
-        prompt_position = 'top',
-        preview_width = 0.5,
+        width = 0.8,
+        mirror = true,
       },
       mappings = {
         i = {
