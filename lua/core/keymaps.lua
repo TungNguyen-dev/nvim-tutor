@@ -14,7 +14,7 @@ local keymap = vim.keymap.set
 
 -- File operations
 keymap("n", "<leader>w", ":w<CR>", vim.tbl_deep_extend("force", opts, { desc = "Save current buffer." }))
-keymap("n", "<leader>q", ":bd<CR>", vim.tbl_deep_extend("force", opts, { desc = "Quit current buffer." }))
+keymap("n", "<leader>q", ":q!<CR>", vim.tbl_deep_extend("force", opts, { desc = "Quit current window." }))
 keymap("n", "<leader>Q", ":qa!<CR>", vim.tbl_deep_extend("force", opts, { desc = "Quit app." }))
 
 -- Split window
