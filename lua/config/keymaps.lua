@@ -17,7 +17,7 @@ wk.add({
     { "<A-Left>", ":vertical resize -2<CR>", desc = "Resize window left", silent = true },
     { "<A-Right>", ":vertical resize +2<CR>", desc = "Resize window right", silent = true },
     { "<leader>ec", "<cmd>Neotree position=current<CR>", desc = "Neo-tree: Open in current window" },
-    { "<leader>cc", "<cmd>CopilotChat<cr>", desc = "Open CopilotChat" },
-    { "<leader>ao", "<cmd>AerialOpen<cr>", desc = "Open Aerial" },
+    { "<leader>ac", "<cmd>CopilotChat<cr>", desc = "Open CopilotChat" },
+    { "<leader>ho", "<cmd>AerialOpen<cr>", desc = "Open Aerial" },
   },
 })
