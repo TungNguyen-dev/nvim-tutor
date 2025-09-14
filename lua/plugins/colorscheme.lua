@@ -1,5 +1,6 @@
 return {
   "catppuccin/nvim",
+  tag = "v1.10.0",
   lazy = true,
   name = "catppuccin",
   opts = {
