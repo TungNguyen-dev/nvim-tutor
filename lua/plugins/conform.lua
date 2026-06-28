@@ -9,7 +9,6 @@ return {
       json = { "prettier" },
       html = { "prettier" },
       css = { "prettier" },
-      markdown = { "prettier" },
       xml = { "xmllint" },
 
       -- Use the "*" filetype to run formatters on all filetypes.
